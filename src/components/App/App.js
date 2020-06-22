@@ -8,14 +8,20 @@ import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import LearningRoute from '../../routes/LearningRoute/LearningRoute'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
+import TokenService from '../../services/token-service'
 import './App.css'
 
 export default class App extends Component {
-  state = { hasError: false }
+  state = { 
+    hasError: false 
+  }
 
   static getDerivedStateFromError(error) {
     console.error(error)
     return { hasError: true }
+  }
+
+  componentDidMount() {
   }
 
   render() {

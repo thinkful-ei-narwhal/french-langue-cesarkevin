@@ -1,10 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class DashboardRoute extends Component {
   render() {
     return (
       <section>
-        implement and style me
+        <h2>Test language 1</h2>
+        {/* <h2>You're Here to learn French!</h2> */}
+          <ul>
+            <li>
+              
+            </li>
+          </ul>
       </section>
     );
   }

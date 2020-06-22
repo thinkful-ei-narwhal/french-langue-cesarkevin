@@ -7,8 +7,12 @@ a {
   text-decoration: none;
   color: #01200F;
 }
+a:hover{
+    text-decoration: none;
+    color: #f60404;
+  }
 
-form {
+form, .board {
   margin: 30px;
   background-color: white;
   padding: 50px;
@@ -33,4 +37,4 @@ input {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
+ 
