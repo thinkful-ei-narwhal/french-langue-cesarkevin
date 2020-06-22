@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import LangService from '../services/lang-service';
+import LangService from '../../services/lang-service';
 
 class DashboardRoute extends Component {
 
   componentDidMount () {
-    LangService.getLanguage;
+    // LangService.getLanguage()
+    // .then(data => {
+    //   this.setState(
+    //   this.state.language=data.language,
+    //   this.state.words=data.words
+    //   )
+    // })
   }
 
   render() {

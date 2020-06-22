@@ -1,3 +1,5 @@
+import config from '../config';
+
 const LangService = {
   getLanguage(){
     let error;
