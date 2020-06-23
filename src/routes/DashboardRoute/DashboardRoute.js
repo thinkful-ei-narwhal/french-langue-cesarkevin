@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import LangService from '../../services/lang-service';
-import LanguageContext from '../../contexts/LanguagContext'
+import LanguageContext from '../../contexts/LanguagContext';
+import WordList from '../../components/WordList/WordList';
 
 class DashboardRoute extends Component {
 
   static contextType = LanguageContext;
-
-
 
   componentDidMount () {
     const setData = (data) => {
@@ -20,14 +20,24 @@ class DashboardRoute extends Component {
   }
 
   render() {
+    let { language, words } = this.context
+    console.log(words)
+    const wordsList = words.map((word) => {
+      return <WordList 
+                key={word.id}
+                original={word.original}
+                correct_count={word.correct_count}
+                incorrect_count={word.incorrect_count}
+              />
+    })
     return (
       <section>
-        <h2>{this.context.language.name}</h2>
-        <h4>Total correct answers: ${this.context.language.total_score}</h4>
+        <h2>{language.name}</h2>
+        <p>Total correct answers: {language.total_score}</p>
+        <Link to = '/learn'>Start practicing</Link>
+        <h3>Words to practice</h3>
           <ul>
-            <li>
-              
-            </li>
+            {wordsList}
           </ul>
       </section>
     );
