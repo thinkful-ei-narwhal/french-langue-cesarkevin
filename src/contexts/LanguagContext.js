@@ -4,7 +4,7 @@ import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
 
 const LanguageContext = React.createContext({
-  language: [],
+  language: {},
   words: [],
   error: null,
   setError: () => {},
@@ -35,7 +35,7 @@ export class LanguageProvider extends Component {
     })
   }
   setLanguage = language => {
-    console.log(language.language)
+    console.log('the language is', language.language)
     this.setState({
       language: language.language
     })
@@ -48,6 +48,9 @@ export class LanguageProvider extends Component {
 
   render() {
     const value = {
+      language: this.state.language,
+      words: this.state.words,
+      error: this.state.error,
       setLanguage: this.setLanguage,
       setWords: this.setWords,
       clearError: this.clearError,

@@ -14,7 +14,7 @@ class DashboardRoute extends Component {
   }
 
   render() {
-      console.log(this.context.language)
+    console.log('the', this.context.language)
     return (
       <section>
         <h2>Test language 1</h2>
