@@ -6,11 +6,13 @@ import IdleService from '../services/idle-service'
 const LanguageContext = React.createContext({
   language: {},
   words: [],
+  head: {},
   error: null,
   setError: () => {},
   clearError: () => {},
   setLanguage: () => {},
   setWords: () => {},
+  setHead: () => {},
 })
 
 export default LanguageContext
@@ -21,6 +23,7 @@ export class LanguageProvider extends Component {
     this.state = {
       language: [],
       words: [],
+      head: {},
       error: null,
     }
   }
@@ -44,16 +47,23 @@ export class LanguageProvider extends Component {
       words: data.words
     })
   }
+  setHead = data => {
+    this.setState({
+      head: data
+    })
+  }
 
   render() {
     const value = {
       language: this.state.language,
       words: this.state.words,
+      head: this.state.head,
       error: this.state.error,
       setLanguage: this.setLanguage,
       setWords: this.setWords,
       clearError: this.clearError,
       setError: this.setError,
+      setHead: this.setHead,
     }
 
     return (
