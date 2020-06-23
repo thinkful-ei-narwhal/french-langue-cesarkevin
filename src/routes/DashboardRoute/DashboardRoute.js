@@ -6,18 +6,24 @@ class DashboardRoute extends Component {
 
   static contextType = LanguageContext;
 
+
+
   componentDidMount () {
+    const setData = (data) => {
+      this.context.setLanguage(data)
+      this.context.setWords(data)
+    }
     this.context.clearError();
     LangService.getLanguage()
-    .then(data => {this.context.setLanguage(data)})
+    .then(data => {setData(data)})
     .catch(error => this.context.setError(error))
   }
 
   render() {
-    console.log('the', this.context.language)
     return (
       <section>
-        <h2>Test language 1</h2>
+        <h2>{this.context.language.name}</h2>
+        <h4>Total correct answers: ${this.context.language.total_score}</h4>
           <ul>
             <li>
               

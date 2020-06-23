@@ -34,15 +34,14 @@ export class LanguageProvider extends Component {
       error: null
     })
   }
-  setLanguage = language => {
-    console.log('the language is', language.language)
+  setLanguage = data => {
     this.setState({
-      language: language.language
+      language: data.language
     })
   }
-  setWords = word => {
+  setWords = data => {
     this.setState({
-      word: word
+      words: data.words
     })
   }
 
