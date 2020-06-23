@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LangService from '../../services/lang-service';
 import LanguageContext from '../../contexts/LanguagContext';
 import WordList from '../../components/WordList/WordList';
+import './DashboardRoute.css'
 
 class DashboardRoute extends Component {
 
@@ -31,11 +32,13 @@ class DashboardRoute extends Component {
               />
     })
     return (
-      <section>
+      <section className='dashBoard'>
+        <div className='head'>
         <h2>{language.name}</h2>
         <p>Total correct answers: {language.total_score}</p>
-        <Link to = '/learn'>Start practicing</Link>
-        <h3>Words to practice</h3>
+        <Link to = '/learn' className='button'>Start practicing</Link>
+        </div>
+        <h3 className='practiceHead'>Words to practice</h3>
           <ul>
             {wordsList}
           </ul>

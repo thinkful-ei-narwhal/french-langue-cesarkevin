@@ -1,0 +1,20 @@
+.word{
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid rgb(54, 156, 54);
+    padding: 0px 20px;
+}
+
+.head{
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+}
+
+.score{
+  text-align: left;
+}
+
+.originalWord{
+    padding: 15px 0;
+    text-align: center;
+}
