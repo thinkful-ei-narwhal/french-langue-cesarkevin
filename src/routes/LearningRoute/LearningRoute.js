@@ -13,6 +13,14 @@ class LearningRoute extends Component {
     .catch(error => this.context.setError(error))
   }
 
+  handlePostGuess (){
+    this.context.clearError();
+    LangService.postGuess()
+    .then(data => {this.context.setHead(data)})
+    .catch(error => this.context.setError(error))
+  }
+
+
   render() {
     console.log(this.context.head)
     return (
@@ -26,10 +34,9 @@ class LearningRoute extends Component {
           <p>You have answered this word incorrectly {this.context.head.wordIncorrectCount} times.</p>
         </div>
         <form>
-          <label for='learn-guess-input'>What's the translation for this word?</label>
+          <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
           <input type='text' className='learn-guess-input' id='learn-guess-input' name='learn-guess-input' required></input>
           <button type='submit'>Submit your answer</button>
-
         </form>
       </section>
     );
