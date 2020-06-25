@@ -84,20 +84,36 @@ class LearningRoute extends Component {
     return 'Submit your answer'
   }
 
+  displayNextWord() {
+    if (!this.state.submitted) {
+      return (<span className='nextWord'>{this.context.head.nextWord}</span>);
+    };
+    return null;
+  }
+
+  displayWordScore() {
+    if (!this.state.submitted) {
+      return (
+        <div>
+          <p>You have answered this word correctly {this.context.head.wordCorrectCount} times.</p>
+          <p>You have answered this word incorrectly {this.context.head.wordIncorrectCount} times.</p>
+        </div>
+      );
+    };
+    return null;
+  }
+
   render() {
     const guessError = this.validateGuess();
     return (
       <section className='whiteBackground'>
         <h2>{this.checkAnswer()}</h2>
-        <span className= 'nextWord'>{this.context.head.nextWord}</span>
+        {this.displayNextWord()}
         <div className="DisplayScore">
           <p>Your total score is: {this.context.head.totalScore}</p>
         </div>
-          {this.displayFeedback()}
-        <div>
-          <p>You have answered this word correctly {this.context.head.wordCorrectCount} times.</p>
-          <p>You have answered this word incorrectly {this.context.head.wordIncorrectCount} times.</p>
-        </div>
+        {this.displayFeedback()}
+        {this.displayWordScore()}
         {(this.state.submitted===false)?(
         <form
         onSubmit={(e) => {
