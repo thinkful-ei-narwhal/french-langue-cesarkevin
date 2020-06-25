@@ -1,8 +1,8 @@
 .word{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-top: 2px solid rgb(54, 156, 54);
-    padding: 0px 20px;
 }
 
 .head{
@@ -12,9 +12,11 @@
 
 .score{
   text-align: left;
+  padding-left: 20px;
 }
 
 .originalWord{
     padding: 15px 0;
     text-align: center;
+    font-size: 12px;
 }
