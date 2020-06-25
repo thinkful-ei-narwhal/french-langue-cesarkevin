@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import LangService from '../../services/lang-service';
-import LanguageContext from '../../contexts/LanguagContext'
+import LanguageContext from '../../contexts/LanguagContext';
+import ValidationError from '../../components/ValidationError/ValidationError';
 
 class LearningRoute extends Component {
 
   static contextType = LanguageContext;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      guess: {
+        value: '',
+        touched: false,
+      }
+    };
+  }
 
   componentDidMount () {
     this.context.clearError();
@@ -13,15 +24,26 @@ class LearningRoute extends Component {
     .catch(error => this.context.setError(error))
   }
 
-  handlePostGuess (){
+  handleSubmit = e => {
     this.context.clearError();
-    LangService.postGuess()
+    LangService.postGuess(this.state.guess.value)
     .then(data => {this.context.setHead(data)})
     .catch(error => this.context.setError(error))
   }
 
+  validateGuess() {
+    const guess = this.state.guess.value;
+    if (!guess) {
+      return 'guess is required';
+    } 
+  }
+  updateGuess(guess) {
+    this.setState({ guess: { value: guess, touched: true } });
+  }
+
 
   render() {
+    const guessError = this.validateGuess();
     console.log(this.context.head)
     return (
       <section>
@@ -33,10 +55,22 @@ class LearningRoute extends Component {
           <p>You have answered this word correctly {this.context.head.wordCorrectCount} times.</p>
           <p>You have answered this word incorrectly {this.context.head.wordIncorrectCount} times.</p>
         </div>
-        <form>
+        <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          this.handleSubmit();
+        }}
+        >
+          {this.state.guess.touched && <ValidationError message={guessError} />}
           <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
-          <input type='text' className='learn-guess-input' id='learn-guess-input' name='learn-guess-input' required></input>
-          <button type='submit'>Submit your answer</button>
+          <input type='text' className='learn-guess-input' id='learn-guess-input' name='learn-guess-input' required
+          onChange={(e) => this.updateGuess(e.target.value)}></input>
+          
+          <button type='submit' value='Submit'
+          disabled={this.validateGuess()}
+          >
+            Submit your answer
+          </button>
         </form>
       </section>
     );

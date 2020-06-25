@@ -58,21 +58,22 @@ const LangService = {
         'Authorization': `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
-        guess: guess,
-      })
+        guess: guess
+      })})
       .then(res => {
         if (!res.ok) {
           error = { code: res.status};
         }
         return res.json();
-      }).then(data => {
+      })
+      .then(data => {
         if (error) {
           error.message = data.message;
           return Promise.reject(error);
         }
         return data
       })
-  })}
+    }
 }
 
 export default LangService
