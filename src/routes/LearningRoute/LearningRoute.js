@@ -44,7 +44,6 @@ class LearningRoute extends Component {
 
   render() {
     const guessError = this.validateGuess();
-    console.log(this.context.head)
     return (
       <section>
         implement and style me
