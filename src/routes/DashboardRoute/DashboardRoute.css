@@ -10,6 +10,10 @@ li{
     list-style-type: none; 
 }
 
+ul{
+  padding: 0px;
+}
+
 a.button {
     background-color: #33CA7F;
     display: inline-block;
