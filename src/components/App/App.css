@@ -3,6 +3,7 @@
   
 }
 
+
 a {
   text-decoration: none;
   color: #01200F;
@@ -12,7 +13,7 @@ a:hover{
     color: #f60404;
   }
 
-form, .board{
+.board, .whiteBackground{
   margin: 30px;
   background-color: white;
   padding: 50px;

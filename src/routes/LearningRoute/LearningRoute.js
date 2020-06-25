@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LangService from '../../services/lang-service';
 import LanguageContext from '../../contexts/LanguagContext';
 import ValidationError from '../../components/ValidationError/ValidationError';
+import './LearningRoute.css'
 
 class LearningRoute extends Component {
 
@@ -86,10 +87,9 @@ class LearningRoute extends Component {
   render() {
     const guessError = this.validateGuess();
     return (
-      <section>
-        implement and style me
+      <section className='whiteBackground'>
         <h2>{this.checkAnswer()}</h2>
-        <span>{this.context.head.nextWord}</span>
+        <span className= 'nextWord'>{this.context.head.nextWord}</span>
         <div className="DisplayScore">
           <p>Your total score is: {this.context.head.totalScore}</p>
         </div>
