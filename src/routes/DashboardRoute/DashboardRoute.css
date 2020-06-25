@@ -27,5 +27,11 @@ a.button {
   .practiceHead{
       padding: 20px;
   }
-  
+
+  @media (min-width: 720px) {
+    .dashBoard {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+  }
   
