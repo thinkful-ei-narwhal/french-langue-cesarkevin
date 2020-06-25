@@ -2,8 +2,8 @@
 french-langue
 
 ## Links
-live site: <br/>
-backend:
+live site: https://spaced-rep-french.vercel.app
+backend: https://damp-bastion-87075.herokuapp.com/
 
 ## Using The API
 Currently the API supports GET and POST endpoints.
@@ -21,7 +21,9 @@ Currently the API supports GET and POST endpoints.
 
 
 ### Summary
-- 
+This app helps users implement the spaced repetition technique to help users learn ten preloaded French words.
+New Users can create an account. Returning users can log in and begin practicing with instant feedback and
+reinforcement.
 
 ## Technologies
   - React
