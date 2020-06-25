@@ -18,7 +18,11 @@ Currently the API supports GET and POST endpoints.
     + POST Guess: POST (https://url/api/auth/language/guess)<br />
 
 ## Screen Shots
-
+![signUp](images/signUp.png)<br />
+![logIn](images/logIn.png)<br />
+![dashboard](images/dashboard.png)<br />
+![practice](images/practice.png)<br />
+![feedback](images/feedback.png)<br />
 
 ### Summary
 This app helps users implement the spaced repetition technique to help users learn ten preloaded French words.
