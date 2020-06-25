@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "spaced-rep-french",
+  "alias": "spaced-rep-french",
+  "routes": [
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "/index.html" }
+  ]
+}
