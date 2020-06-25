@@ -22,7 +22,6 @@ class DashboardRoute extends Component {
 
   render() {
     let { language, words } = this.context
-    console.log(words)
     const wordsList = words.map((word) => {
       return <WordList 
                 key={word.id}
