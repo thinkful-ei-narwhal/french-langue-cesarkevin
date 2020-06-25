@@ -40,6 +40,9 @@ class LearningRoute extends Component {
       touched: false,
     }})
   }
+  handleSubmit2 = e => {
+    this.setState({ submitted: false })
+  }
 
   validateGuess() {
     const guess = this.state.guess.value;
@@ -95,7 +98,7 @@ class LearningRoute extends Component {
           <p>You have answered this word correctly {this.context.head.wordCorrectCount} times.</p>
           <p>You have answered this word incorrectly {this.context.head.wordIncorrectCount} times.</p>
         </div>
-
+        {(this.state.submitted===false)?(
         <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -110,9 +113,16 @@ class LearningRoute extends Component {
           <button type='submit' value='Submit'
           disabled={this.validateGuess()}
           >
-            {this.renderButton()}
+            Submit your answer
           </button>
-        </form>
+        </form>):
+        <button type='submit' value='Submit'
+        onClick={(e) => {
+          e.preventDefault();
+          this.handleSubmit2();
+        }}>
+            Try another word!
+        </button>}
       </section>
     );
   }
