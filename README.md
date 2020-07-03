@@ -3,7 +3,8 @@ french-langue
 
 ## Links
 live site: https://spaced-rep-french.vercel.app<br />
-backend: https://damp-bastion-87075.herokuapp.com/
+backend: https://damp-bastion-87075.herokuapp.com/<br />
+Link to Server repo:[https://github.com/thinkful-ei-narwhal/french-langue-api-cesar-kevin](https://github.com/thinkful-ei-narwhal/french-langue-api-cesar-kevin)
 
 ## Using The API
 Currently the API supports GET and POST endpoints.
